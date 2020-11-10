@@ -17,7 +17,7 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
@@ -27,25 +27,37 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // Set the content of the activity to use the activity_main.xml layout file
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); //content view set kiya for mainActivity
+
+
+        //explicit intents are the fixed intents we choose to catch our throw..like in this case..
+        //implicit intents are those intents which will give many options to catch our throw i.e. through which we have to open..
+               // like multiple browser choosing while downloading any files fro google..
+
+        //all the below intents are explicit intents..as the only point towards particular class which gets opened up..
+
+
+
 
         // Find the View that shows the numbers category
-        TextView numbers = (TextView) findViewById(R.id.numbers);
+        TextView numbers = (TextView) findViewById(R.id.numbers); //view ko dhunda
 
         // Set a click listener on that View
-        numbers.setOnClickListener(new OnClickListener() {
+        numbers.setOnClickListener(new OnClickListener() { // onclick listener lagaaya
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
-            public void onClick(View view) {
+            public void onClick(View view) { //on the click this method should be executed..
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
-
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class); //making new intent..(numbersIntent)
+                                                                  //current view  , //destinationView
                 // Start the new activity
-                startActivity(numbersIntent);
+                startActivity(numbersIntent); //start the destination activity by calling startActivity..
             }
         });
+
+
+
 
         // Find the View that shows the family category
         TextView family = (TextView) findViewById(R.id.family);
@@ -63,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         // Find the View that shows the colors category
         TextView colors = (TextView) findViewById(R.id.colors);
 
@@ -78,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(colorsIntent);
             }
         });
+
+
 
         // Find the View that shows the phrases category
         TextView phrases = (TextView) findViewById(R.id.phrases);
